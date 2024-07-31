@@ -7,11 +7,19 @@
 import os
 import warnings
 from threading import Thread
+from typing import Dict
 
 import numpy as np
 import torch
 from PIL import Image
 from tqdm import tqdm
+
+variant_to_config_mapping: Dict[str, str] = {
+    "tiny": "sam2_hiera_t.yaml",
+    "small": "sam2_hiera_s.yaml",
+    "base_plus": "sam2_hiera_b+.yaml",
+    "large": "sam2_hiera_l.yaml",
+}
 
 
 def get_sdpa_settings():

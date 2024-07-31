@@ -47,4 +47,4 @@ jobs:
       - name: Test with PyTest
         run: |
           python -m venv .venv && export PATH=".venv/bin:$PATH"
-          pytest -v -m "all"
+          pytest -v -m "full"

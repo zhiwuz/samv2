@@ -2,6 +2,7 @@ import pytest
 import torch
 
 from sam2.build_sam import build_sam2
+from sam2.utils.misc import variant_to_config_mapping
 
 
 @pytest.mark.full
@@ -11,7 +12,9 @@ from sam2.build_sam import build_sam2
 )
 def test_build_sam(download_weights, variant: str):
     model = build_sam2(
-        "sam2_hiera_t.yaml", "./artifacts/sam2_hiera_tiny.pt", device="cpu"
+        variant_to_config_mapping[variant],
+        f"./artifacts/sam2_hiera_{variant}.pt",
+        device="cpu",
     )
 
     assert isinstance(model, torch.nn.Module)
