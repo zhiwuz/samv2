@@ -1,4 +1,10 @@
-More details to come soon !
+## Installation
+
+This is a CPU compatible fork of the official SAMv2 implementation. You can download it from [pypi](https://pypi.org/) using `pip` as follows:
+
+```bash
+pip install samv2
+```
 
 ## Citation
 
