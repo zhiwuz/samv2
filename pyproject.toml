@@ -48,3 +48,8 @@ ignore = ["W605"]
 
 [tool.ruff.lint.isort]
 lines-after-imports = 2
+
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = ["tests"]
+markers = ["full: Run the full test suite (will download all model weights)"]
