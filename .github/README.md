@@ -6,6 +6,16 @@ This is a CPU compatible fork of the official SAMv2 implementation. You can down
 pip install samv2
 ```
 
+## Usage
+
+After downloading the official weights, you can use the `load_model()` helper method to instantiate a model.
+
+```python
+from sam2 import load_model
+
+model = load_model(variant="tiny", ckpt_path="artifacts/sam2_hiera_tiny.pt", device="cpu")
+```
+
 ## Citation
 
 ```bibtex

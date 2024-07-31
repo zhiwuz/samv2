@@ -11,6 +11,28 @@ from hydra import compose
 from hydra.utils import instantiate
 from omegaconf import OmegaConf
 
+from .utils.misc import VARIANTS, variant_to_config_mapping
+
+
+def load_model(
+    variant: str,
+    ckpt_path=None,
+    device="cuda",
+    mode="eval",
+    hydra_overrides_extra=[],
+    apply_postprocessing=True,
+) -> torch.nn.Module:
+    assert variant in VARIANTS, f"only accepted variants are {VARIANTS}"
+
+    return build_sam2(
+        config_file=variant_to_config_mapping[variant],
+        ckpt_path=ckpt_path,
+        device=device,
+        mode=mode,
+        hydra_overrides_extra=hydra_overrides_extra,
+        apply_postprocessing=apply_postprocessing,
+    )
+
 
 def build_sam2(
     config_file,

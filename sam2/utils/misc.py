@@ -7,12 +7,14 @@
 import os
 import warnings
 from threading import Thread
-from typing import Dict
+from typing import Dict, List
 
 import numpy as np
 import torch
 from PIL import Image
 from tqdm import tqdm
+
+VARIANTS: List[str] = ["tiny", "small", "base_plus", "large"]
 
 variant_to_config_mapping: Dict[str, str] = {
     "tiny": "sam2_hiera_t.yaml",
