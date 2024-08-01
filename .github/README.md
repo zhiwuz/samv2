@@ -13,8 +13,17 @@ After downloading the official weights, you can use the `load_model()` helper me
 ```python
 from sam2 import load_model
 
-model = load_model(variant="tiny", ckpt_path="artifacts/sam2_hiera_tiny.pt", device="cpu")
+model = load_model(
+    variant="tiny",
+    ckpt_path="artifacts/sam2_hiera_tiny.pt",
+    device="cpu"
+)
 ```
+
+## Features 🚀
+
+* CPU compatible
+* ships with config files
 
 ## Citation
 
