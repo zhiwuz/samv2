@@ -1,3 +1,5 @@
+[![Build and Tests](https://github.com/SauravMaheshkar/samv2/actions/workflows/ci.yml/badge.svg)](https://github.com/SauravMaheshkar/samv2/actions/workflows/ci.yml)
+
 ## Installation
 
 This is a CPU compatible fork of the official SAMv2 implementation. You can download it from [pypi](https://pypi.org/) using `pip` as follows:
@@ -24,6 +26,7 @@ model = load_model(
 
 * CPU compatible
 * ships with config files
+* Run image and video inference on CPUs
 
 ## Citation
 
