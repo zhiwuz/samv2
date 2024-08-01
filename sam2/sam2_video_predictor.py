@@ -38,8 +38,8 @@ class SAM2VideoPredictor(SAM2Base):
     def init_state(
         self,
         video_path,
-        offload_video_to_cpu=False,
-        offload_state_to_cpu=False,
+        offload_video_to_cpu=True,
+        offload_state_to_cpu=True,
         async_loading_frames=False,
     ):
         """Initialize a inference state."""
@@ -63,7 +63,7 @@ class SAM2VideoPredictor(SAM2Base):
         # the original video height and width, used for resizing final output scores
         inference_state["video_height"] = video_height
         inference_state["video_width"] = video_width
-        inference_state["device"] = torch.device("cuda")
+        inference_state["device"] = torch.device("cpu")
         if offload_state_to_cpu:
             inference_state["storage_device"] = torch.device("cpu")
         else:
@@ -733,7 +733,7 @@ class SAM2VideoPredictor(SAM2Base):
         )
         if backbone_out is None:
             # Cache miss -- we will run inference on a single image
-            image = inference_state["images"][frame_idx].cuda().float().unsqueeze(0)
+            image = inference_state["images"][frame_idx].cpu().float().unsqueeze(0)
             backbone_out = self.forward_image(image)
             # Cache the most recent frame's feature (for repeated interactions with
             # a frame; we can use an LRU cache for more frames in the future).
