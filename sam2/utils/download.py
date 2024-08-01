@@ -6,7 +6,7 @@ import pytest
 
 
 @pytest.fixture
-def download_weights() -> None:
+def download_weights(output_directory: str = "artifacts") -> None:
     base_url: str = "https://dl.fbaipublicfiles.com/segment_anything_2/072824/"
     file_names: List[str] = [
         "sam2_hiera_tiny.pt",
@@ -14,7 +14,6 @@ def download_weights() -> None:
         "sam2_hiera_base_plus.pt",
         "sam2_hiera_large.pt",
     ]
-    output_directory: str = "artifacts"
 
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
