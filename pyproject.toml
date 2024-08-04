@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-description = "fork of the official SAMv2 implementation with cpu support"
+description = "CPU compatible fork of the official SAMv2 implementation"
 name = "samv2"
 version = "0.0.4"
 authors = [{ name = "Saurav Maheshkar", email = "sauravvmaheshkar@gmail.com" }]

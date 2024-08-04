@@ -32,8 +32,8 @@ def show_masks(
             output_image = Image.new(
                 mode="RGBA",
                 size=(
-                    masks[0]["segmentation"].shape[0],
                     masks[0]["segmentation"].shape[1],
+                    masks[0]["segmentation"].shape[0],
                 ),
                 color=(0, 0, 0),
             )
